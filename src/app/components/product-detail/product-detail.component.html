@@ -1,0 +1,39 @@
+<ng-container *ngIf="productoId;else noProducto">
+  <div class="rutas">
+    <a href="" routerLink="/home">Inicio</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <a href="">SHOP</a>
+</div>
+  <div>
+    <div class="product-detail-container">
+        <div class="product-image-container">
+          <img [src]="productoId.image">
+        </div>
+        <div class="product-info-container">
+          <p>ANNS SHOP</p>
+          <h1 class="product-name">{{productoId.name}}</h1>
+         <p class="product-description">{{productoId.description}}</p> 
+          <p class="product-price">{{ productoId.price|currency:'COP':'symbol':'.0-0' }}</p>
+          <div class="quantity-container">
+            <button (click)="disminuirCantidad(productoId.cantidad)">-</button>
+            <input type="text" [(ngModel)]="productoId.cantidad">
+            <button (click)="incrementarCantidad()">+</button>
+          </div>
+          <div class="favoritos">
+            <p>Agregar a Favoritos</p>
+            <i [ngClass]="active ? 'fa-solid fa-heart':'fa-regular fa-heart'"(click)="agregarFavorito(productoId.likes)"></i>
+           
+          </div>
+
+          <button class="add-to-cart-button" (click)="agregarAlCarrito()">Añadir al carrito</button>
+        </div>
+      </div>
+</div>
+</ng-container>
+<ng-template #noProducto>
+  <div class="container">
+    <h2>No haz seleccionado un producto</h2>
+    <hr>
+  </div>
+</ng-template>
+

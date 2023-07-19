@@ -1,0 +1,98 @@
+<div class="container-slider">
+    <div class="slider" id="slider">
+        <div class="slider__section">
+            <img src="./assets/slide-1.jpg" class="slider__img">
+            <div class="slider__content">
+                <h2 class="slider__title">Amigurumis</h2>
+                <p class="slider__txt">Cool summer sale 50% off</p>
+                <a class="btn-shop" routerLink="/shop" >SHOP NOW</a>
+            </div>
+        </div>
+         <div class="slider__section">
+            <img src="./assets/slide-2.jpg" class="slider__img">
+            <div class="slider__content">
+                <h2 class="slider__title">Amigurumis</h2>
+                <p class="slider__txt">Cool summer sale 50% off</p>
+                <a class="btn-shop"  routerLink="/shop">SHOP NOW</a>
+            </div>
+        </div>
+        <div class="slider__section">
+            <img src="./assets/slide-3.jpg" class="slider__img">
+            <div class="slider__content">
+                <h2 class="slider__title">Prints and drawings</h2>
+                <p class="slider__txt">Cool summer sale 50% off</p>
+                <a class="btn-shop"  routerLink="/shop">SHOP NOW</a>
+            </div>
+        </div> 
+    </div>
+    <div class="slider__btn slider__btn--right" id="btn-right" >&#62;</div>
+    <div class="slider__btn slider__btn--left" id="btn-left">&#60;</div>
+</div>
+<main class="main">
+    <div id="container">
+        <h2 class="main-title">Welcome to Anns Shop!</h2>
+    </div>
+    <section class="container-products">
+        <div class="product" *ngFor="let producto of products" (click)="detalles(producto)">
+            <img [src]="producto.image" id={{producto.id}} class="product__img" alt="...">
+            <div class="product__description">
+                <h3 class="product__title">{{producto.name}}</h3>
+                <span class="product__price">{{producto.price| currency:'COP':'symbol':'.0-0'}}</span>
+            </div>
+        </div>
+    </section>
+    <section class="container__testimonials">
+        <h2 class="section__title">Testimonios</h2>
+        <h3 class="testimonial__title">Anamaria</h3>
+        <p class="testimonial__txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+         Nemo, sunt. Soluta assumenda expedita quos, atque dicta, dolore saepe ducimus autem quia harum 
+         quis, minus asperiores. Mollitia maxime deleniti autem eos.</p>
+    </section>
+    <div class="container-editor">
+        <div class="editor__item">
+           <img src="./assets/modelo-1.jpg" alt="" class="editor__img">
+            <p class="editor__circle">EXPRESS YOUT STYLE NOW</p>
+        </div>
+        <div class="editor__item">
+            <img src="./assets/modelo-2.jpg" alt="" class="editor__img">
+            <p class="editor__circle">EXPRESS YOUT STYLE NOW</p>
+        </div>
+    </div>
+    <section class="container-tips">
+        <div class="tip">
+            <i class="far fa-hand-paper"></i>
+            <h2 class="tip__title">Satisfaction Guaranteed</h2>
+            <p class="tip__txt">Duis mollis, est non commodo luctus, nisi erat porttitor
+            ligula, eget lacinia odio sem nec elit</p>
+            <a href="" class="btn-shop" routerLink="/shop" >SHOP NOW</a>
+        </div>
+        <div class="tip">
+            <i class="fas fa-rocket"></i>
+            <h2 class="tip__title">Fast Shipping</h2>
+            <p class="tip__txt">Duis mollis, est non commodo luctus, nisi erat porttitor
+            ligula, eget lacinia odio sem nec elit</p>
+            <a href="" class="btn-shop" routerLink="/shop" >SHOP NOW</a>
+        </div>
+        <div class="tip">
+            <i class="fas fa-cog"></i>
+            <h2 class="tip__title">Fast Shipping</h2>
+            <p class="tip__txt">Duis mollis, est non commodo luctus, nisi erat porttitor
+            ligula, eget lacinia odio sem nec elit</p>
+            <a href="" class="btn-shop" routerLink="/shop">SHOP NOW</a>
+        </div>
+    </section>
+    <div class="owl-carousel owl-theme">
+        <div class="item"><h4>1</h4></div>
+        <div class="item"><h4>2</h4></div>
+        <div class="item"><h4>3</h4></div>
+        <div class="item"><h4>4</h4></div>
+        <div class="item"><h4>5</h4></div>
+        <div class="item"><h4>6</h4></div>
+        <div class="item"><h4>7</h4></div>
+        <div class="item"><h4>8</h4></div>
+        <div class="item"><h4>9</h4></div>
+        <div class="item"><h4>10</h4></div>
+        <div class="item"><h4>11</h4></div>
+        <div class="item"><h4>12</h4></div>
+    </div>
+</main>

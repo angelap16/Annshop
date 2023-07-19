@@ -1,0 +1,89 @@
+<div class="container-contacto">
+    <h1>Contacto</h1>
+<div>
+    <p>¡No dude en comunicarse con cualquier consulta o comentario! 
+    Asegúrese de incluir una dirección de correo electrónico válida y nos pondremos en 
+    contacto con usted lo antes posible.
+    </p>
+    <p>
+       <strong> Nota:</strong>Si tiene preguntas sobre su pedido,
+       <strong>por favor, incluya su número de pedido.</strong> 
+    </p>
+</div>
+
+<form [formGroup]="formGroup" (submit)="enviar()">
+    <div>
+        <div>
+            <label>Usuario</label><br>
+            <select>
+                <option selected disabled>Escoge el tipo de usuario</option>
+                <option value="cliente">Cliente</option>
+                <option value="comunidad">Comunidad</option>
+                <option value="proveedor">Proveedor</option>
+                <option value="comprador/consumidor">Comprador/consumidor</option>
+                <option value="medio de comunicacion">Medio de comunicación</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+        <div>
+            <label>Nombre</label>
+            <input formControlName="nombre" placeholder="nombre" >
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="Email" formControlName="correo">
+            <div id="error" *ngIf="formGroup.get('correo')?.errors && formGroup.get('correo')?.touched"> 
+                <p style="color: red;" *ngIf="formGroup.get('correo')?.hasError('required')">*El correo es requerido</p>
+                <p style="color: red;" *ngIf="formGroup.get('correo')?.hasError('email')">* Digite un correo valido</p>
+            </div>
+        </div>
+        <div>
+            <label>Pais</label><br>
+            <select>
+                <option *ngFor="let pais of Paises" [value]="pais.name.common">
+                    {{pais.name.common}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div >
+        <div>
+            <label>Tipo de identificación</label><br>
+            <select>
+                <option selected disabled>Selecciona el tipo de identificación</option>
+                <option value="CC">CC</option>
+                <option value="TI">TI</option>
+                <option value="CE">CE</option>
+                <option value="NIT">NIT</option>
+                <option value="PASAPORTE">Pasaporte</option>
+                <option value="OTRO">Otro documento</option>
+            </select>
+        </div>
+        <div>
+            <label >Número de identificación</label>
+            <input formControlName="noidentificacion" placeholder="Escribe tu número de identificación" >
+        </div>
+    </div>
+   
+    
+    <div>
+        <label>Celular</label>
+        <input type="number"  formControlName="celular" placeholder="Escribe tu número de celular">
+    </div>
+    <div></div>
+    <div>
+        <label>Motivo de contacto</label>
+        <textarea formControlName="message" placeholder="Message"></textarea>
+    </div>
+    <div>
+        <button type="Submit" [disabled]="formGroup.invalid">Aceptar</button>
+    </div>
+   <!--  <div *ngIf="formGroup.invalid">
+        <p style="color:red">Revise que la informacion suministrada sea correcta</p>
+    </div> -->
+</form>
+</div>
+
+

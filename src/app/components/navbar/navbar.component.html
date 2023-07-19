@@ -1,0 +1,73 @@
+<div class="container">
+    <div id="sidebar" [ngClass]="{'active':active}" >
+        <div id="header" class="container__header">
+            <label style="cursor:pointer" (click)="active=!active">X</label>
+            <label>CARRITO DE COMPRAS</label>
+        </div>
+        <ng-container *ngIf="mostrar ;else noProducto">
+            <div class="container-carrito">
+                <div class="info-carrito" *ngFor="let producto of productosCarrito">
+                    <div class="info-carrito__container">
+                        <div class="info-carrito__div">
+                            <img class="info-carrito__imagen" [src]="producto.image" >
+                        </div>
+                    </div>
+                    <div class="datos-carrito">
+                        <label class="datos-carrito_name">{{producto.name}}</label>
+                        <div class="quantity-container">
+                            <button (click)="disminuirCantidad(producto)">-</button>
+                            <input type="text" [(ngModel)]="producto.cantidad">
+                            <button (click)="incrementarCantidad(producto)">+</button>
+                            <div id="delete" (click)="eliminarProducto(producto)">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            <div class="border"></div>
+                <div class="subtotal" *ngIf="productosCarrito.length!=0">
+                <label>Subtotal</label>
+                <label >{{ total.toLocaleString()}}</label>
+                </div>
+                <div class="shoping">
+                    <button routerLink="/card" (click)="active=!active">Comprar</button>
+                </div>
+            </div>
+           
+        </ng-container>
+        <ng-template #noProducto>
+            <div class="row">
+            <label>No haz añadido productos al carrito</label>
+            </div>
+        </ng-template> 
+        </div> 
+    <div *ngIf="active" class="fondo"></div>       
+</div>
+<header class="main-header">
+    <div class="container container--flex">
+        <div class="main-header__container">
+            <h1 class="main-header__title">ANN'S<!-- <img src="./assets/logo.png" --></h1>
+            <span class="icon-menu" id="btn-menu" (click)="mostrarMenu()"><i class="fas fa-bars"></i></span>
+            <nav class="main-nav" id="main-nav">
+                <ul class="menu">
+                    <li class="menu__item"><a routerLink="/home" class="menu__link">HOME</a></li>
+                    <li class="menu__item"><a class="menu__link">ABOUT</a></li>
+                    <li class="menu__item"><a class="menu__link">FEATURES</a></li>
+                    <li class="menu__item"><a routerLink="/shop" class="menu__link">SHOP</a></li>
+                    <li class="menu__item"><a routerLink="/contacto" class="menu__link">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-header__container">
+            <span class="main-header__txt">Need Help</span>
+            <p class="main-header__txt"><i class="fas fa-phone"></i>Call 3003836531</p>
+        </div>
+        <div class="main-header__container">
+            <a class="main-header__link"  routerLink="/admin/login-admin"><i class="fas fa-user"></i></a>
+            <a class="main-header__btn" (click)="verCarrito()">My cart<i class="fas fa-shopping-cart" id="carrito"></i></a>
+            <div id="contador">{{cantidad}}</div>
+            <input type="search" class="main-header__input" placeholder="Buscar productos"><i class="fas fa-search"></i>
+        </div>
+    </div>
+</header>
+  

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+body{
+  height: 500px;
+  font-family: 'Secular One', sans-serif;
+}
+.rutas{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  margin:0 10vw 0 10vw;
+  padding:20px;
+  color: gray;
+}
+.rutas a{
+  margin:0 5px;
+  position: relative;
+  left:0;
+  color: gray;
+}
+.rutas a:hover{
+  cursor:pointer;
+}
+.rutas a:last-child{
+  color: rgba(137, 43, 226, 0.767);
+}
+.product-detail-container {
+  display: flex;
+  justify-content: space-between;
+   padding: 20px;
+  
+}
+.container{
+  margin:10rem;
+}
+.container h2{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.product-image-container {
+  width: 40%;
+  margin-left: 10vh;
+}
+
+.product-image-container img {
+  width: 100%;
+  }
+
+.product-info-container {
+  width: 60%;
+  margin-left: 50px;
+  font-family: 'Inconsolata', sans-serif;
+  }
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  }
+.product-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  }
+.product-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff715e;
+  margin-bottom: 20px;
+  }
+.add-to-cart-button {
+  background-color: #ff715e;;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin-top: 1em;
+  }
+  
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-detail img {
+  width: 200px;
+  height: 200px;
+}
+
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity-container input {
+  width: 40px;
+  text-align: center;
+}
+
+.quantity-container button {
+  cursor: pointer;
+}
+p{
+  margin-bottom: 0;
+}

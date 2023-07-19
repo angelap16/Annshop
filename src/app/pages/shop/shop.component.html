@@ -1,0 +1,92 @@
+<div class="separador"></div>
+<div class="container">
+    <div class="results">
+        <div class="filtro">
+            <div class="filtro__category">
+                <h3 (click)="filtroCategory('todo')"><strong>Ver todo</strong></h3>
+            </div>
+            <div class="filtro__category">
+                <h3 (click)="filtroCategory('accesorios')"><strong>Accesorios</strong></h3>
+                <div class="filtro__category-sub">
+                    <div class="container__div">
+                        <label><input type="radio" name="category" id="llavero"
+                                (click)="this.filtroSubcategory('llavero')"> LLaveros
+                        </label>
+                    </div>
+                    <div class="container__div">
+                        <label> <input type="radio" name="category" id="gorros"
+                                (click)="this.filtroSubcategory('gorros')"> Gorros</label>
+                    </div>
+                    <div class="container__div">
+                        <label> <input type="radio" name="category" id="ganchos"
+                                (click)="this.filtroSubcategory('')"> Ganchos para el
+                            cabello</label>
+                    </div>
+                    <div class="container__div">
+                        <label><input type="radio" name="category" id="bandanas"
+                                (click)="this.filtroSubcategory('bandanas')"> Bandanas</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filtro__category">
+                <h3 (click)="filtroCategory('articulos para bebes')"><strong>articulos
+                        para bebes</strong></h3>
+                <div class="filtro__category-sub">
+                    <div class="container__div">
+                        <label><input type="radio" name="category" id
+                                (click)="this.filtroSubcategory('calzado')"> Calzado</label></div>
+                    <div class="container__div"><label><input type="radio"
+                                name="category" id
+                                (click)="this.filtroSubcategory('sonajero')"> Sonajeros</label></div>
+                </div>
+            </div>
+            <div class="filtro__category">
+                <h3 (click)="filtroCategory('flores')"><strong>Flores</strong></h3>
+                <div class="filtro__category-sub">
+                    <div class="container__div">
+                        <label><input type="radio" name="category" id
+                                (click)="this.filtroSubcategory('ramo')"> Ramos</label>
+                    </div>
+                    <div class="container__div">
+                        <label (click)="this.filtroSubcategory('macetas')"><input
+                                type="radio" name="category" id> Macetas</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filtro__category">
+                <h3 (click)="filtroCategory('hogar')"><strong>Hogar</strong></h3>
+                <div class="filtro__category-sub">
+                    <div class="container__div">
+                        <label><input type="radio" name="category" id>
+                            portavasos e individuales</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filtro__category">
+                <h3><strong>Peluches</strong></h3>
+            </div>
+        </div>
+        <div class="compra">
+            <div class="spinner">
+                <app-spinner *ngIf="loading"></app-spinner>
+            </div>
+            <div class="container-products">
+                <div class="product" *ngFor="let producto of productsFiltro"
+                    (click)="detalles(producto)">
+                    <div *ngIf="productsFiltro;else noProduct"></div>
+                    <img [src]="producto.image" class="product__img" alt="...">
+                    <div class="product__description">
+                        <h3 class="product__title">{{producto.name}}</h3>
+                        <span class="product__price">{{producto.price| currency:'COP':'symbol':'.0-0'}}</span>
+                    </div>
+                    <div>
+                        <ng-template #noProduct>
+                            <p>No se encontraron productos disponibles</p>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
